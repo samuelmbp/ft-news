@@ -1,0 +1,20 @@
+{
+  "name": "ft-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "esbuild index.js --bundle outfile=bundle.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.39",
+    "eslint": "^8.16.0"
+  }
+}
