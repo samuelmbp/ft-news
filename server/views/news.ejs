@@ -7,5 +7,24 @@
   <title>FT News</title>
 </head>
 <body>
+  <header class="header">
+    <h1 class="header__logo">FT News.</h1>
+  </header>
+
+  <div class="wrapper">
+    <div class="news">
+      <% if(articles != null) { %> 
+        <% articles.forEach(function(article) { %> 
+          <a href="<%- article.webUrl %>" class="news__newsBox" target="_blank">
+            <h3>
+              <%- article.webTitle %>
+            </h3>
+          </a>
+        <% }) %> 
+      <% } else { %> 
+          <p>No posts found.</p>
+      <% } %> 
+    </div>
+  </div>
 </body>
 </html>
