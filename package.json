@@ -4,17 +4,21 @@
   "description": "FT News",
   "main": "server/app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "jest --coverage",
     "build": "esbuild client/src/index.js --bundle --outfile=client/src/bundle.js --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "Samuel Raducan",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "isomorphic-fetch": "^3.0.0",
     "jest": "^28.1.0",
+    "node-fetch": "^3.2.4",
     "nodemon": "^2.0.16"
   },
   "devDependencies": {
