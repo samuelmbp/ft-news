@@ -4,12 +4,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-const newsRouter = require('./routes/newsRouter');
+const newsApi = require('./routes/newsApi');
 
 /** Middleware helpers */
 app.use(express.json());
 app.use(cors());
-app.use('/', newsRouter);
+app.use('/', newsApi);
 
 /** Template Engine */
 app.set('views', path.join(__dirname, './views')); //eslint-disable-line
