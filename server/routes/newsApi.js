@@ -41,7 +41,8 @@ router.get('/headlines', async (req, res) => {
 		);
 		const data = await response.json();
 		// console.log(data.results[0].title.title);
-		res.send(data);
+		res.render('headlines', { results: data.results[0].results });
+		// res.send(data);
 	} catch (error) {
 		console.log(`Error: ${error.message}`);
 	}
