@@ -9,6 +9,13 @@
 <body>
   <header class="header">
     <h1 class="header__logo">FT News.</h1>
+    <form action="/headlines" method="GET" role="search" aria-label="Site search">
+      <label>Search FT</label>
+      <input name="search" type="text" placeholder="Search FT News." required></input>
+      <button class="submit" type="submit">
+        Search
+      </button>
+    </form>
   </header>
 
   <div class="wrapper">

@@ -1,18 +1,50 @@
-const isomorphicFetch = require('isomorphic-fetch'); //eslint-disable-line
+const fetch = require('isomorphic-fetch');
 const express = require('express');
-const newsRouter = express.Router();
+const router = express.Router();
 
-newsRouter.get('/', async (req, res) => {
+const searchQuery = (searchParam) => {
+	return {
+		queryString: searchParam,
+		queryContext: {
+			curations: ['ARTICLES'],
+		},
+		resultContext: {
+			aspects: ['title', 'lifecycle', 'location', 'summary', 'editorial'],
+		},
+	};
+};
+
+router.get('/', async (req, res) => {
 	try {
 		const newsApi = await fetch(
 			`https://content.guardianapis.com/search?api-key=${process.env.GUARDIAN_API_KEY}` // eslint-disable-line
 		);
 		const data = await newsApi.json();
-		// res.send(data.response.results);
 		res.render('news', { articles: data.response.results });
 	} catch (error) {
 		console.log(`Error: ${error.message}`);
 	}
 });
 
-module.exports = newsRouter;
+router.get('/headlines', async (req, res) => {
+	const searchParam = req.body.search;
+	try {
+		const response = await fetch(
+			`http://api.ft.com/content/search/v1?apiKey=${process.env.FT_API_KEY}`, // eslint-disable-line
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(searchQuery(searchParam)),
+			}
+		);
+		const data = await response.json();
+		// console.log(data.results[0].title.title);
+		res.send(data);
+	} catch (error) {
+		console.log(`Error: ${error.message}`);
+	}
+});
+
+module.exports = router;
