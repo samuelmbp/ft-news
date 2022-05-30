@@ -27,16 +27,16 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/headlines', async (req, res) => {
-	const searchParam = req.body.search;
+	const searchString = req.query.q;
 	try {
 		const response = await fetch(
-			`http://api.ft.com/content/search/v1?apiKey=${process.env.FT_API_KEY}`, // eslint-disable-line
+			`https://api.ft.com/content/search/v1?apiKey=${process.env.FT_API_KEY}`, // eslint-disable-line
 			{
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(searchQuery(searchParam)),
+				body: JSON.stringify(searchQuery(searchString)),
 			}
 		);
 		const data = await response.json();

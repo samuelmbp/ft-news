@@ -4,22 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0,o-colors@^6.0.8,o-typography@^7.0.2,o-table@^9.0.2&brand=core&system_code=$$$-no-bizops-system-code-$$$"/>
   <title>FT News.</title>
 </head>
-<body>
+<body class="o-colors-page-background">
   <header class="header">
     <h1 class="header__logo">FT News.</h1>
     <form action="/headlines" method="GET" role="search">
       <label>Search FT</label>
       <input name="search" type="text" placeholder="Search FT News." required></input>
-      <button class="submit" type="submit">
+      <button id="submit" type="submit">
         Search
       </button>
     </form>
   </header>
 
-  <div class="wrapper">
-    <div class="news">
+  <div class="o-grid-container o-typography-wrapper">
+    <div class="o-grid-row" data-o-grid-colspan="center 8">
       <ul class="#">
         <li class="#">
           <% results.forEach(function(result) { %> 
