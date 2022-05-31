@@ -14,20 +14,11 @@ const searchQuery = (searchParam) => {
 	};
 };
 
-router.get('/', async (req, res) => {
-	try {
-		const newsApi = await fetch(
-			`https://content.guardianapis.com/search?api-key=${process.env.GUARDIAN_API_KEY}` // eslint-disable-line
-		);
-		const data = await newsApi.json();
-		res.render('news', { articles: data.response.results });
-	} catch (error) {
-		console.log(`Error: ${error.message}`);
-	}
-});
-
 router.get('/headlines', async (req, res) => {
-	const searchString = req.query.q;
+	const searchString = req.query.search;
+	console.log(req.body.search);
+	console.log(req.query);
+	// const { search } = req.query;
 	try {
 		const response = await fetch(
 			`https://api.ft.com/content/search/v1?apiKey=${process.env.FT_API_KEY}`, // eslint-disable-line
@@ -40,9 +31,7 @@ router.get('/headlines', async (req, res) => {
 			}
 		);
 		const data = await response.json();
-		// console.log(data.results[0].title.title);
 		res.render('headlines', { results: data.results[0].results });
-		// res.send(data);
 	} catch (error) {
 		console.log(`Error: ${error.message}`);
 	}

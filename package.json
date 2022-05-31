@@ -1,29 +1,33 @@
 {
-  "name": "ft-news",
-  "version": "1.0.0",
-  "description": "FT News",
-  "main": "server/app.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "test": "jest --coverage",
-    "build": "esbuild client/src/index.js --bundle --outfile=client/src/bundle.js --watch"
-  },
-  "keywords": [],
-  "author": "Samuel Raducan",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.1",
-    "hbs": "^4.2.0",
-    "isomorphic-fetch": "^3.0.0",
-    "jest": "^28.1.0",
-    "node-fetch": "^3.2.4",
-    "nodemon": "^2.0.16"
-  },
-  "devDependencies": {
-    "esbuild": "^0.14.39",
-    "eslint": "^8.16.0"
-  }
+	"name": "ft-news",
+	"version": "1.0.0",
+	"description": "FT News",
+	"main": "server/app.js",
+	"scripts": {
+		"dev": "nodemon app.js",
+		"start": "npm run build && node build/app.min.js",
+		"test": "jest --coverage",
+		"create_build": "rm -rf build && mkdir build",
+		"minify": "esbuild server/app.js --bundle --minify --outfile=build/app.min.js --platform=node",
+		"copy_views": "cp -rf server/views build",
+		"build": "npm run create_build && npm run minify && npm run copy_views"
+	},
+	"keywords": [],
+	"author": "Samuel Raducan",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"ejs": "^3.1.8",
+		"express": "^4.18.1",
+		"hbs": "^4.2.0",
+		"isomorphic-fetch": "^3.0.0",
+		"jest": "^28.1.0",
+		"node-fetch": "^3.2.4"
+	},
+	"devDependencies": {
+		"esbuild": "^0.14.39",
+		"eslint": "^8.16.0",
+		"dotenv": "^16.0.1",
+		"nodemon": "^2.0.16"
+	}
 }
