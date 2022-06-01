@@ -1,12 +1,15 @@
 const fetch = require('isomorphic-fetch');
 
-const searchQuery = (searchParam) => {
+const searchQuery = (searchParam, page) => {
+	const itemsPerPage = 10;
 	return {
 		queryString: searchParam,
 		queryContext: {
 			curations: ['ARTICLES'],
 		},
 		resultContext: {
+			maxResults: itemsPerPage,
+			offset: itemsPerPage * (page - 1),
 			aspects: ['title', 'lifecycle', 'location', 'summary', 'editorial'],
 		},
 	};
@@ -14,8 +17,7 @@ const searchQuery = (searchParam) => {
 
 async function handler(req, res) {
 	const searchString = req.query.search;
-	console.log(req.query);
-	// const { search } = req.query;
+	const page = req.query.page ? +req.query.page : 1;
 	try {
 		const response = await fetch(
 			`https://api.ft.com/content/search/v1?apiKey=${process.env.FT_API_KEY}`, // eslint-disable-line
@@ -24,7 +26,7 @@ async function handler(req, res) {
 				headers: {
 					'Content-Type': 'application/json',
 				},
-				body: JSON.stringify(searchQuery(searchString)),
+				body: JSON.stringify(searchQuery(searchString, page)),
 			}
 		);
 		const data = await response.json();

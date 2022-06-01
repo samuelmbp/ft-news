@@ -40,5 +40,35 @@
 				</ul>
 			</div>
 		</div>
+
+		<button id="prev__page">
+			<< Previous
+		</button>
+		<button id="next__page">
+			Next >>
+		</button>
+
+		<script>
+			const prevPage = document.querySelector('#prev__page');
+			const nextPage = document.querySelector('#next__page');
+
+			function navHandler(previous = false) {
+				const params = new URLSearchParams(window.location.search);
+				console.log(params.toString());
+				const paramPage = params.get("page");
+				const page = !paramPage ? 1 : +paramPage; // + Parse the value to an number
+
+				if (previous && page === 1) {
+					return;
+				}
+
+				const nextPage = previous ? page - 1 : page + 1;
+				params.set("page", nextPage);
+				window.location.search = params.toString();
+			}
+
+			prevPage.addEventListener('click', e => navHandler(true));
+			nextPage.addEventListener('click', e => navHandler());
+		</script>
 	</body>
 </html>

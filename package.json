@@ -2,14 +2,14 @@
 	"name": "ft-news",
 	"version": "1.0.0",
 	"description": "FT News",
-	"main": "server/app.js",
+	"main": "src/app.js",
 	"scripts": {
 		"dev": "nodemon app.js",
 		"start": "npm run build && node build/app.min.js",
 		"test": "jest --coverage",
 		"create_build": "rm -rf build && mkdir build",
-		"minify": "esbuild server/app.js --bundle --minify --outfile=build/app.min.js --platform=node",
-		"copy_views": "cp -rf server/views build",
+		"minify": "esbuild src/app.js --bundle --minify --outfile=build/app.min.js --platform=node",
+		"copy_views": "cp -rf src/views build",
 		"build": "npm run create_build && npm run minify && npm run copy_views"
 	},
 	"keywords": [],

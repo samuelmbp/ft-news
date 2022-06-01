@@ -1,4 +1,3 @@
-// const fetch = require('isomorphic-fetch');
 const express = require('express');
 const router = express.Router();
 
