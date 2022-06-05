@@ -4,50 +4,127 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://www.ft.com/__origami/service/build/v3/bundles/css?components=o-grid@^6.0.0,o-colors@^6.0.8,o-typography@^7.0.2,o-table@^9.0.2&brand=core&system_code=$$$-no-bizops-system-code-$$$"
-		/>
-		<title>FT News.</title>
+		<link rel="stylesheet" href="https://www.ft.com/__origami/service/build/v2/bundles/css?modules=o-table,o-forms,o-buttons,o-header-services,o-grid,o-header,o-teaser-collection,o-grid,o-ft-affiliate-ribbon,o-footer" />
+		<link rel="icon" type="image/svg+xml" href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&amp;format=svg">
+		<title>FT News</title>
 	</head>
-	<body class="o-colors-page-background">
-		<header class="header">
-			<h1 class="header__logo">FT News.</h1>
-			<form action="/headlines" method="GET">
-				<label>Search FT</label>
-				<input
-					id="search__news"
-					type="text"
-					name="search"
-					placeholder="Search FT News."
-					required
-				/>
-				<button id="submit" type="submit">Search</button>
-			</form>
-		</header>
+	<body>
+	<header class="o-header o-header--simple" data-o-component="o-header" tabindex="-1" data-o-header--js="">
+		<div class="o-header__row o-header__top" data-trackable="header-top">
+			<div class="o-header__container">
+				<div class="o-header__top-wrapper">
 
-		<div class="o-grid-container o-typography-wrapper">
-			<div class="o-grid-row" data-o-grid-colspan="center 8">
-				<ul class="#">
-					<li class="#">
-						<% results.forEach(function(result) { %>
-						<a href="<%- result.location.uri  %>" target="_blank">
-							<h3 id="#"><%- result.title.title %></h3>
+					<div class="o-header__top-column o-header__top-column--center">
+						<a class="o-header__top-logo" href="/" title="Go to Financial Times homepage">
+								<span class="o-header__visually-hidden">Financial Times</span>
 						</a>
-						<p><%- result.summary.excerpt%></p>
-						<% }) %>
-					</li>
-				</ul>
+					</div>
+					<div class="o-header__top-column o-header__top-column--right">
+            <a class="o-header__top-link o-header__top-link--myft" href="https://www.ft.com/myft/following/07a7ce23-c656-4032-b5ed-91a3ea4abc7f" target="_blank" aria-label="My FT">
+              <span class="o-header__visually-hidden">myFT</span>
+            </a>
+          </div>
+				</div>
 			</div>
 		</div>
 
-		<button id="prev__page">
-			<< Previous
-		</button>
-		<button id="next__page">
-			Next >>
-		</button>
+		<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation" aria-label="Primary navigation" data-trackable="header-nav:desktop">
+			<div class="o-header__container">
+				<ul class="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="/" id="o-header-link-0" data-trackable="Home">Home</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/world" target="_blank" id="o-header-link-1" data-trackable="Home">World</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/world/uk" target="_blank" id="o-header-link-2" data-trackable="Home">Uk</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/companies" target="_blank" id="o-header-link-3" data-trackable="Home">Companies</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/technology" target="_blank" id="o-header-link-4" data-trackable="Home">Tech</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/markets" target="_blank" id="o-header-link-5" data-trackable="Home">Markets</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/climate-capital" target="_blank" id="o-header-link-6" data-trackable="Home">Climate</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/opinion" target="_blank" id="o-header-link-7" data-trackable="Home">Opinion</a>
+					</li>
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/work-careers" target="_blank" id="o-header-link-8" data-trackable="Home">Work & Careers</a>
+						<li class="o-header__nav-item">
+							<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/life-arts" target="_blank" id="o-header-link-9" data-trackable="Home">Life & Arts</a>
+						</li>
+						<li class="o-header__nav-item">
+							<a class="o-header__nav-link o-header__nav-link--primary" href="https://www.ft.com/htsi" target="_blank" id="o-header-link-10" data-trackable="Home">Htsi</a>
+						</li>
+					</li>
+					
+				</ul>
+				<ul class="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
+					<li class="o-header__nav-item">
+						<a class="o-header__nav-link" href="https://www.ft.com/" target="_blank" data-trackable="Sign In">
+						Sign In
+						</a>
+					</li>
+					<li class="o-header__nav-item o-header__nav-item--hide-s">
+							<a class="o-header__nav-button" role="button" href="https://www.ft.com/" target="_blank" data-trackable="Subscribe">
+						Subscribe</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
+		<br>
+		<div id="o-header-search" class="o-header__row o-header__search" role="search">
+			<form class="o-header__search-form" action="/headlines" method="GET" role="search">
+				<label class="o-header__visually-hidden" for="o-header-search-term">Search the FT</label>
+				<input 
+					class="o-header__search-term" 
+					id="o-header-search-term" 
+					name="search" 
+					type="text" 
+					placeholder="Search the FT" 
+					required>
+				</input>
+				<button id="submit" class="o-header__search-submit" type="submit">
+					Search
+					<span class="o-header__visually-hidden">Search</span>
+				</button>
+			</form>
+		</div>
+		<br>
+		<div class="o-grid-container">
+			<div class="o-grid-row">
+				<div data-o-grid-colspan="one-half center">
+					<div id= "query-headlines" class="demo-container">
+						<div class="o-teaser-collection o-teaser-collection--horizontal demo-slim-collection">
+							<% results.forEach(function(result) { %>
+								<a href="<%- result.location.uri  %>" target="_blank">
+									<h3 id="#"><%- result.title.title %></h3>
+								</a>
+								<p><%- result.summary.excerpt%></p>
+								<span>
+								<%- result.lifecycle.initialPublishDateTime %>
+								</span>
+							<% }) %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<button id="prev__page" class="search-pagination__next-page o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-left o-buttons--big o-buttons-icon--icon-only">
+		</button>
+		<button id="next__page" class="search-pagination__next-page o-buttons o-buttons--secondary o-buttons-icon o-buttons-icon--arrow-right o-buttons--big o-buttons-icon--icon-only">
+		</button>
+	</header>
+	
+	<!-- FT Pagination -->
 		<script>
 			const prevPage = document.querySelector('#prev__page');
 			const nextPage = document.querySelector('#next__page');
@@ -70,5 +147,6 @@
 			prevPage.addEventListener('click', e => navHandler(true));
 			nextPage.addEventListener('click', e => navHandler());
 		</script>
+
 	</body>
 </html>
