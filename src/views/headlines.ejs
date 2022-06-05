@@ -26,7 +26,7 @@
           </div>
 				</div>
 			</div>
-		</div
+		</div>
 		<nav id="o-header-nav-desktop" class="o-header__row o-header__nav o-header__nav--desktop" role="navigation" aria-label="Primary navigation" data-trackable="header-nav:desktop">
 			<div class="o-header__container">
 				<ul class="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
@@ -77,7 +77,6 @@
 				</ul>
 			</div>
 		</nav>
-		
 		<br>
 		<div id="o-header-search" class="o-header__row o-header__search" role="search">
 			<form class="o-header__search-form" action="/headlines" method="GET" role="search">
@@ -123,27 +122,28 @@
 	</header>
 	
 	<!-- FT Pagination -->
-	<script>
-		const prevPage = document.querySelector('#prev__page');
-		const nextPage = document.querySelector('#next__page');
+		<script>
+			const prevPage = document.querySelector('#prev__page');
+			const nextPage = document.querySelector('#next__page');
 
-		function navHandler(previous = false) {
-			const params = new URLSearchParams(window.location.search);
-			console.log(params.toString());
-			const paramPage = params.get('page');
-			const page = !paramPage ? 1 : +paramPage; // + Parse the value to an number
+			function navHandler(previous = false) {
+				const params = new URLSearchParams(window.location.search);
+				console.log(params.toString());
+				const paramPage = params.get('page');
+				const page = !paramPage ? 1 : +paramPage; // + Parse the value to an number
 
-			if (previous && page === 1) {
-				return;
+				if (previous && page === 1) {
+					return;
+				}
+
+				const nextPage = previous ? page - 1 : page + 1;
+				params.set('page', nextPage);
+				window.location.search = params.toString();
 			}
 
-			const nextPage = previous ? page - 1 : page + 1;
-			params.set('page', nextPage);
-			window.location.search = params.toString();
-		}
+			prevPage.addEventListener('click', () => navHandler(true));
+			nextPage.addEventListener('click', () => navHandler());
 
-		prevPage.addEventListener('click', () => navHandler(true));
-		nextPage.addEventListener('click', () => navHandler());
-	</script>
+		</script>
 	</body>
 </html>
