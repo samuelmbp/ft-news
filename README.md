@@ -32,4 +32,24 @@ As a user,
 I want to be able to search for headlines containing specific words,
 So that I can see related news articles (i.e. searching for "wimbledon" should return a list of wimbledon-related headlines)
 ```
+----
+## Building Process
+- First I set up the project and installed all the dependencies required
+- I built the first user story to display the news headlines
+- I have used the API_KEY from FT website to retrieve the headlines
+- I have implemented the second user story to be able to search for specific headlines
+- I have decided to extract some code from the router and move into the helpers folder
+- I have used the FT's [Origami](https://origami.ft.com/) Components for a similar look and feel as ft.com
+- I have created the pagination feature with 10 results per page
+  
+
+
+## Technologies
+- JavaScript
+- NodeJS | Express
+- EJS
+- The FT's [Origami](https://origami.ft.com/) Components
+- Esbuild
+- ESLint
+
 
