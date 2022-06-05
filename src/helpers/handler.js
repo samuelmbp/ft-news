@@ -1,20 +1,5 @@
 const fetch = require('isomorphic-fetch');
 
-const searchQuery = (searchParam, page) => {
-	const itemsPerPage = 10;
-	return {
-		queryString: searchParam,
-		queryContext: {
-			curations: ['ARTICLES'],
-		},
-		resultContext: {
-			maxResults: itemsPerPage,
-			offset: itemsPerPage * (page - 1),
-			aspects: ['title', 'lifecycle', 'location', 'summary', 'editorial'],
-		},
-	};
-};
-
 async function handler(req, res) {
 	const searchString = req.query.search;
 	const page = req.query.page ? +req.query.page : 1;
@@ -35,5 +20,20 @@ async function handler(req, res) {
 		console.log(`Error: ${error.message}`);
 	}
 }
+
+const searchQuery = (searchParam, page) => {
+	const itemsPerPage = 10;
+	return {
+		queryString: searchParam,
+		queryContext: {
+			curations: ['ARTICLES'],
+		},
+		resultContext: {
+			maxResults: itemsPerPage,
+			offset: itemsPerPage * (page - 1),
+			aspects: ['title', 'lifecycle', 'location', 'summary', 'editorial'],
+		},
+	};
+};
 
 module.exports = handler;
