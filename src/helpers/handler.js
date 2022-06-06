@@ -22,15 +22,15 @@ async function handler(req, res) {
 }
 
 const searchQuery = (searchParam, page) => {
-	const itemsPerPage = 10;
+	const HEADLINES_PER_PAGE = 10;
 	return {
 		queryString: searchParam,
 		queryContext: {
 			curations: ['ARTICLES'],
 		},
 		resultContext: {
-			maxResults: itemsPerPage,
-			offset: itemsPerPage * (page - 1),
+			maxResults: HEADLINES_PER_PAGE,
+			offset: HEADLINES_PER_PAGE * (page - 1),
 			aspects: ['title', 'lifecycle', 'location', 'summary', 'editorial'],
 		},
 	};
