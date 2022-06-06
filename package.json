@@ -25,9 +25,9 @@
 		"node-fetch": "^3.2.4"
 	},
 	"devDependencies": {
-		"esbuild": "^0.14.39",
-		"eslint": "^8.16.0",
 		"dotenv": "^16.0.1",
+		"esbuild": "^0.14.42",
+		"eslint": "^8.16.0",
 		"nodemon": "^2.0.16"
 	}
 }

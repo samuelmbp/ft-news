@@ -102,12 +102,10 @@
 						<div class="o-teaser-collection o-teaser-collection--horizontal demo-slim-collection">
 							<% results.forEach(function(result) { %>
 								<a href="<%- result.location.uri  %>" target="_blank">
-									<h3 id="#"><%- result.title.title %></h3>
+									<h3><%- result.title.title %></h3>
 								</a>
 								<p><%- result.summary.excerpt%></p>
-								<span>
-								<%- result.lifecycle.initialPublishDateTime %>
-								</span>
+								<span><%- result.lifecycle.initialPublishDateTime %></span>
 							<% }) %>
 						</div>
 					</div>
